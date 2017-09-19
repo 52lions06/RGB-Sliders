@@ -25,6 +25,10 @@ class ViewController: UIViewController {
 //        let blue = CGFloat(blueSlider.value)
 //        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
           colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        let defaults = UserDefaults.standard
+        defaults.set(redSlider.value, forKey: "red")
+        defaults.set(blueSlider.value, forKey: "blue")
+        defaults.set(greenSlider.value, forKey: "green")
 
     }
     
@@ -42,6 +46,11 @@ class ViewController: UIViewController {
         colorSquare.layer.borderColor = UIColor.black.cgColor
         colorSquare.layer.borderWidth = 1
 //        colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        
+        let defaults = UserDefaults.standard
+        redSlider.value = defaults.float(forKey: "red")
+        greenSlider.value = defaults.float(forKey: "green")
+        blueSlider.value = defaults.float(forKey: "blue")
     }
 
     override func didReceiveMemoryWarning() {

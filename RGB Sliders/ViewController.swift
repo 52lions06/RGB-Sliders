@@ -24,6 +24,15 @@ class ViewController: UIViewController {
 //        let green = CGFloat(greenSlider.value)
 //        let blue = CGFloat(blueSlider.value)
 //        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+          colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "openColor") {
+            let newViewController = segue.destination
+            newViewController.view.backgroundColor = colorSquare.backgroundColor
+        }
     }
     
     
@@ -32,7 +41,7 @@ class ViewController: UIViewController {
 //        updateBackgroundColor()
         colorSquare.layer.borderColor = UIColor.black.cgColor
         colorSquare.layer.borderWidth = 1
-        colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+//        colorSquare.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +49,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
 // added a comment
 }
 
